@@ -8,17 +8,17 @@ def total_edges(n, directed = False):
 
 
 for i in range(10):
-    print(f' num edges {i} \t directed max total edges: {total_edges(i)} \t undirected max total edges {total_edges(i, True)}')    
+    print(f' num vertices {i} \t directed max total edges: {total_edges(i)} \t undirected max total edges {total_edges(i, True)}')    
 
-#  num edges 0     directed max total edges: 0     undirected total edges 0
-#  num edges 1     directed max total edges: 0     undirected total edges 0
-#  num edges 2     directed max total edges: 1     undirected total edges 2
-#  num edges 3     directed max total edges: 3     undirected total edges 6
-#  num edges 4     directed max total edges: 6     undirected total edges 12
-#  num edges 5     directed max total edges: 10    undirected total edges 20
-#  num edges 6     directed max total edges: 15    undirected total edges 30
-#  num edges 7     directed max total edges: 21    undirected total edges 42
-#  num edges 8     directed max total edges: 28    undirected total edges 56
-#  num edges 9     directed max total edges: 36    undirected total edges 72 
+#  num vertices 0          directed max total edges: 0     undirected max total edges 0
+#  num vertices 1          directed max total edges: 0     undirected max total edges 0
+#  num vertices 2          directed max total edges: 1     undirected max total edges 2
+#  num vertices 3          directed max total edges: 3     undirected max total edges 6
+#  num vertices 4          directed max total edges: 6     undirected max total edges 12
+#  num vertices 5          directed max total edges: 10    undirected max total edges 20
+#  num vertices 6          directed max total edges: 15    undirected max total edges 30
+#  num vertices 7          directed max total edges: 21    undirected max total edges 42
+#  num vertices 8          directed max total edges: 28    undirected max total edges 56
+#  num vertices 9          directed max total edges: 36    undirected max total edges 72
 # 
 #   

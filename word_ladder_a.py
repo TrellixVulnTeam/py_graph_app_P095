@@ -31,6 +31,8 @@ word_set = set()
 for word in words:
       word_set.add(word.lower())
 
+n_list = []
+
 def get_neighbors(word):
     letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
     neighbors = set()
@@ -49,6 +51,8 @@ def get_neighbors(word):
             # check if its a real word
             if new_word_string != word and new_word_string in word_set:
                 neighbors.add(new_word_string)
+    print(f' neighbors {neighbors}')
+    n_list.append([string_word ,[neighbors]])
     return neighbors
 
 class Queue():
@@ -82,6 +86,12 @@ def find_word_path(begin_word, end_word):
         if current_word not in visited:
             # is current word the end word? If yes return path
             if current_word == end_word:
+                
+                for s_item in n_list:
+                    print(f' \t s_item  {s_item} ')
+                    # print(f' neighbor >> {sorted(s_item)}')
+                    
+                print(f' \t\t neighbors sets length {len(n_list)}')
                 return current_path
             # add current word to visited set
             visited.add(current_word)
@@ -92,9 +102,11 @@ def find_word_path(begin_word, end_word):
                 new_path.append(neighbor_word)
                 queue.enqueue(new_path)
             
+                # print(f' ]\t current queue {queue.queue}')
 
 
-
-print(find_word_path('ants', 'diet'))
-print(find_word_path('plane', 'stove'))
-print(find_word_path('lambda', 'google'))
+# print(find_word_path('ants', 'diet'))
+# print(find_word_path('plane', 'stove'))
+# print(find_word_path('lambda', 'google'))
+# print(find_word_path('bit', 'cog'))  # first found fit,
+print(find_word_path('bit', 'kip'))
