@@ -31,11 +31,15 @@ word_set = set()
 for word in words:
       word_set.add(word.lower())
 
-n_list = []
 
-def get_neighbors(word):
+# len_list = []
+# n_list = []
+
+def get_neighbors(word, n_list):
     letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
     neighbors = set()
+    neighbors.clear()
+    
     # a neighbor for a word is any word thats different by one letter
     # and is inside word_list
     string_word = list(word)
@@ -51,8 +55,10 @@ def get_neighbors(word):
             # check if its a real word
             if new_word_string != word and new_word_string in word_set:
                 neighbors.add(new_word_string)
-    print(f' neighbors {neighbors}')
+    # print(f' neighbors {neighbors}')
     n_list.append([new_word_string ,[neighbors]])
+
+    
     return neighbors
 
 class Queue():
@@ -69,34 +75,43 @@ class Queue():
         return len(self.queue)
 
 
-def find_word_path(begin_word, end_word):
+def find_word_path(begin_word, end_word):        
+    len_list = []
+    n_list = []
+
     # do BFS
     # create a queue
     queue = Queue()
     # create a visited set
     visited = set()
+    visited.clear()
     # add start word to Queue (like a path)
     queue.enqueue([begin_word])
     # while queue not empty
     while queue.size() > 0:
+   
         # pop current word off queue
         current_path = queue.dequeue()
         current_word = current_path[-1]
         # if word has not been visited:
         if current_word not in visited:
             # is current word the end word? If yes return path
+            
             if current_word == end_word:
-                
-                for s_item in n_list:
-                    print(f' \t s_item  {s_item} ')
-                    # print(f' neighbor >> {sorted(s_item)}')
 
-                print(f' \t\t neighbors sets length {len(n_list)}')
-                return current_path
+                # for s_item in n_list:
+                #     print(f' \t s_item  {s_item} ')
+                # print(f' \t\t neighbors sets length {len(n_list)}')                
+                len_list.append(len(n_list))
+                # print(f'\n')  
+                visited.clear()   # does nothing
+                #return current_path
+                return (current_path, len(n_list))
+            
             # add current word to visited set
             visited.add(current_word)
             # add neighbors of current word to queue (like a path)
-            for neighbor_word in get_neighbors(current_word):
+            for neighbor_word in get_neighbors(current_word, n_list):
                 # make a copy
                 new_path = list(current_path)
                 new_path.append(neighbor_word)
@@ -109,4 +124,114 @@ def find_word_path(begin_word, end_word):
 # print(find_word_path('plane', 'stove'))
 # print(find_word_path('lambda', 'google'))
 # print(find_word_path('bit', 'cog'))  # first found fit,
-print(find_word_path('bit', 'kip'))
+# print(find_word_path('bit', 'kip'))
+# print(find_word_path('bot', 'kip'))
+# print(find_word_path('bit', 'kip'))
+
+
+a = find_word_path('bit', 'kip')
+print(a)
+
+##### This just repeasts multiples of initial set length(e.g. 24, 48, 72, ...)
+
+
+# for i in range(5):
+
+#     eval("find_word_path('bit', 'kip')")
+    # print(f'\t\t {len(n_list)} ')
+# print(len_list)
+# print(n_list)
+
+# data_list = [find_word_path('bit', 'kip') for _ in range(5)]
+# print(f' data list >> {data_list}')
+
+
+
+# def run_func_loop(func):
+
+#     return [ lambda x  : func ]
+
+# run_func_loop(find_word_path('bit', 'kip'))    
+
+# def loop_func(func):
+#     list_val = []
+
+    
+#     def run_func_loop(func):
+#         list_val.append(find_word_path('bit', 'kip'))
+#         print(f' inner list_val {list_val} ')
+#         return [ lambda x  : func ]
+#         # return [ lambda x  : list_val.append( [find_word_path('bit', 'kip')] ) ]
+#     return run_func_loop(func)  
+
+#     print(f' list_val  {list_val}')
+
+# loop_func(find_word_path('bit', 'kip'))
+
+# result = loop_func()
+# result()
+
+
+# list_val = []
+
+# def loop_func(func):
+#     global list_val
+
+    
+#     def run_func_loop(func):
+#         list_val.append(find_word_path('bit', 'kip'))
+#         # print(f' inner list_val {list_val} ')
+#         return [ lambda x  : func ]
+#         # return [ lambda x  : list_val.append( [find_word_path('bit', 'kip')] ) ]
+#     return run_func_loop(func)  
+
+#     print(f' list_val  {list_val}')
+
+# result = loop_func(find_word_path('bit', 'kip'))
+# print(f' list_val  {list_val}')
+
+
+# list_val = []
+
+# def loop_func(func):
+#     global list_val
+
+    
+#     def run_func_loop(func):
+#         list_val.append(find_word_path('bit', 'kip'))
+#         # print(f' inner list_val {list_val} ')
+#         return [ lambda x  : eval(func) ]
+#         # return [ lambda x  : list_val.append( [find_word_path('bit', 'kip')] ) ]
+#     return run_func_loop(func)  
+
+#     print(f' list_val  {list_val}')
+
+# result = loop_func(find_word_path('bit', 'kip'))
+
+
+
+# print(f' list_val  {list_val}')
+
+# list_val = []
+
+# def loop_func(func):
+#     global list_val
+#     list_val.append(find_word_path('bit', 'kip'))
+
+#     def run_func_loop(func):
+#         list_val.append(find_word_path('bit', 'kip'))
+#         # print(f' inner list_val {list_val} ')
+#         return [ lambda x  : eval(func) ]
+#         # return [ lambda x  : list_val.append( [find_word_path('bit', 'kip')] ) ]
+#     return run_func_loop(func)  
+
+#     for i in range(4):
+#         eval(run_func_loop(func))
+
+#     print(f' list_val  {list_val}')
+
+# result = loop_func(find_word_path('bit', 'kip'))
+
+
+
+# print(f' list_val  {list_val}')
