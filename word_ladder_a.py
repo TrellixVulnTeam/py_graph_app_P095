@@ -52,7 +52,7 @@ def get_neighbors(word):
             if new_word_string != word and new_word_string in word_set:
                 neighbors.add(new_word_string)
     print(f' neighbors {neighbors}')
-    n_list.append([string_word ,[neighbors]])
+    n_list.append([new_word_string ,[neighbors]])
     return neighbors
 
 class Queue():
@@ -90,7 +90,7 @@ def find_word_path(begin_word, end_word):
                 for s_item in n_list:
                     print(f' \t s_item  {s_item} ')
                     # print(f' neighbor >> {sorted(s_item)}')
-                    
+
                 print(f' \t\t neighbors sets length {len(n_list)}')
                 return current_path
             # add current word to visited set
