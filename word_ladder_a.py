@@ -126,13 +126,13 @@ def find_word_path(begin_word, end_word):
 # print(find_word_path('bit', 'cog'))  # first found fit,
 # print(find_word_path('bit', 'kip'))
 # print(find_word_path('bot', 'kip'))
-# print(find_word_path('bit', 'kip'))
+print(find_word_path('bit', 'kip'))
 
 
-a = find_word_path('bit', 'kip')
-print(a)
+# a = find_word_path('bit', 'kip')
+# print(a)
 
-##### This just repeasts multiples of initial set length(e.g. 24, 48, 72, ...)
+##### This just repeats multiples of initial set length(e.g. 24, 48, 72, ...)
 
 
 # for i in range(5):
@@ -146,92 +146,3 @@ print(a)
 # print(f' data list >> {data_list}')
 
 
-
-# def run_func_loop(func):
-
-#     return [ lambda x  : func ]
-
-# run_func_loop(find_word_path('bit', 'kip'))    
-
-# def loop_func(func):
-#     list_val = []
-
-    
-#     def run_func_loop(func):
-#         list_val.append(find_word_path('bit', 'kip'))
-#         print(f' inner list_val {list_val} ')
-#         return [ lambda x  : func ]
-#         # return [ lambda x  : list_val.append( [find_word_path('bit', 'kip')] ) ]
-#     return run_func_loop(func)  
-
-#     print(f' list_val  {list_val}')
-
-# loop_func(find_word_path('bit', 'kip'))
-
-# result = loop_func()
-# result()
-
-
-# list_val = []
-
-# def loop_func(func):
-#     global list_val
-
-    
-#     def run_func_loop(func):
-#         list_val.append(find_word_path('bit', 'kip'))
-#         # print(f' inner list_val {list_val} ')
-#         return [ lambda x  : func ]
-#         # return [ lambda x  : list_val.append( [find_word_path('bit', 'kip')] ) ]
-#     return run_func_loop(func)  
-
-#     print(f' list_val  {list_val}')
-
-# result = loop_func(find_word_path('bit', 'kip'))
-# print(f' list_val  {list_val}')
-
-
-# list_val = []
-
-# def loop_func(func):
-#     global list_val
-
-    
-#     def run_func_loop(func):
-#         list_val.append(find_word_path('bit', 'kip'))
-#         # print(f' inner list_val {list_val} ')
-#         return [ lambda x  : eval(func) ]
-#         # return [ lambda x  : list_val.append( [find_word_path('bit', 'kip')] ) ]
-#     return run_func_loop(func)  
-
-#     print(f' list_val  {list_val}')
-
-# result = loop_func(find_word_path('bit', 'kip'))
-
-
-
-# print(f' list_val  {list_val}')
-
-# list_val = []
-
-# def loop_func(func):
-#     global list_val
-#     list_val.append(find_word_path('bit', 'kip'))
-
-#     def run_func_loop(func):
-#         list_val.append(find_word_path('bit', 'kip'))
-#         # print(f' inner list_val {list_val} ')
-#         return [ lambda x  : eval(func) ]
-#         # return [ lambda x  : list_val.append( [find_word_path('bit', 'kip')] ) ]
-#     return run_func_loop(func)  
-
-#     for i in range(4):
-#         eval(run_func_loop(func))
-
-#     print(f' list_val  {list_val}')
-
-# result = loop_func(find_word_path('bit', 'kip'))
-
-
-
-# print(f' list_val  {list_val}')
