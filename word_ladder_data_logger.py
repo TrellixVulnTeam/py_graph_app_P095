@@ -6,7 +6,7 @@ import sys
 result_list = []
 cleaned_list = []
 
-for i in range(5000):
+for i in range(100):
     result_list.append(subprocess.run([sys.executable, "word_ladder_a.py"], capture_output=True, text=True ))
     # result = (subprocess.run([sys.executable, "word_ladder_a.py"], capture_output=True, text=True ))
     # result = subprocess.run([sys.executable, "word_ladder_a.py"])
