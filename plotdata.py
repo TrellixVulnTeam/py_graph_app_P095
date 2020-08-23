@@ -5,7 +5,7 @@ import numpy as np
 data = []
 
 # open file and read the content in a list
-with open('result_50.txt', 'r') as f:
+with open('result_500.txt', 'r') as f:
     filecontents = f.readlines()
 
     for line in filecontents:
@@ -38,7 +38,8 @@ import matplotlib.pyplot as plt
 plt.rcParams.update({'figure.figsize':(7,5), 'figure.dpi':100})
 
 # Plot Histogram on x
-x = np.random.normal(size = 1000)
+# x = np.random.normal(size = 1000)
+x = np.array(data)
 plt.hist(x, bins=50)
 plt.gca().set(title='Frequency Histogram', ylabel='Frequency');
 

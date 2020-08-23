@@ -206,7 +206,7 @@ class Graph:
         """      FIFO   ir LILO
         Create a queue
         Enqueue PATH to starting Vertex
-        Create a set top store visited vertices
+        Create a set to store visited vertices
         While the queue is NOT empty:  e.g.   > 0
             Dequeue the first PATH Vertex
             Get Vertex from END of PATH
@@ -215,13 +215,13 @@ class Graph:
                 check if vertex is destination_vertex
                     If TRUE, return path
                 enqueue PATH to ALL of neighbors   
-                make COPY of current path
-                add neighbor to path copy
-                enqueue copy                
+                    make COPY of current path
+                    add neighbor to path copy
+                    enqueue copy                
         """
 
         q = Queue()                         # Create a queue
-        q.enqueue([starting_vertex])            # Enqueue starting at vertex into Queue (list)
+        q.enqueue([starting_vertex])            # Enqueue path to starting vertex into Queue (list)
         visited = set()                         # Create a set to store visited 
         print(f' SIZE: {q.size()} ') 
         while q.size() > 0:                     # While the queue is NOT empty: 

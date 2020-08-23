@@ -106,10 +106,16 @@ class Graph:
         # while the queue is not empty:
         while queue.size() > 0:
             # get current vertex PATH (dequeue from queue)
+            print(f' queue >>>  {queue.queue}      with size {queue.size()}')
             current_obj = queue.dequeue()
             current_path = current_obj['path']
             current_vertex = current_obj['current_vertex']
+
+            print(f' \t dequeued current_obj = {current_obj}')
+            print(f' \t dequeued path is {current_path}    current_vertex {current_vertex}')
             # set the current vertex to the LAST element of the PATH
+            ####    The LAST element in path is current_vertex, no need to get last element     
+
 
             # Check if the current vertex has not been visited:
             if current_vertex not in visited_vertices:
@@ -122,6 +128,7 @@ class Graph:
                 # Mark the current vertex as visited
                 # Add the current vertex to a visited_set
                 visited_vertices.add(current_vertex)
+                print(f' visited_vertices is {visited_vertices}')
 
                 for neighbor_vertex in self.get_neighbors(current_vertex):
                 # Queue up NEW paths with each neighbor:
@@ -132,6 +139,7 @@ class Graph:
                         'current_vertex': neighbor_vertex,
                         'path': new_path
                     })
+                print(f' \t\t NOW enqueued paths  {queue.queue}\n')    
         return None
 
     def dfs(self, starting_vertex, destination_vertex):
@@ -263,7 +271,7 @@ if __name__ == '__main__':
     Valid BFS path:
         [1, 2, 4, 6]
     '''
-    print(graph.bfs(1, 3))
+    print(graph.bfs(1, 6))
 
     '''
     Valid DFS paths:
