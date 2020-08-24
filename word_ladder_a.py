@@ -55,7 +55,7 @@ def get_neighbors(word, n_list):
             # check if its a real word
             if new_word_string != word and new_word_string in word_set:
                 neighbors.add(new_word_string)
-    # print(f' neighbors {neighbors}')
+    print(f' neighbors {neighbors}')
     n_list.append([new_word_string ,[neighbors]])
 
     
@@ -84,7 +84,7 @@ def find_word_path(begin_word, end_word):
     queue = Queue()
     # create a visited set
     visited = set()
-    visited.clear()
+    # visited.clear()
     # add start word to Queue (like a path)
     queue.enqueue([begin_word])
     # while queue not empty(['bit', 'kit', 'kip'], 110)
@@ -99,12 +99,12 @@ def find_word_path(begin_word, end_word):
             
             if current_word == end_word:
 
-                # for s_item in n_list:
-                #     print(f' \t s_item  {s_item} ')
-                # print(f' \t\t neighbors sets length {len(n_list)}')                
-                len_list.append(len(n_list))
+                for s_item in n_list:
+                    print(f' \t s_item  {s_item} ')
+                print(f' \t\t neighbors sets length {len(n_list)}')                
+                # len_list.append(len(n_list))
                 # print(f'\n')  
-                visited.clear()   # does nothing
+                # visited.clear()   # does nothing
                 #return current_path
                 return (current_path, len(n_list))
             
@@ -118,7 +118,7 @@ def find_word_path(begin_word, end_word):
                 queue.enqueue(new_path)
             
                 # print(f' ]\t current queue {queue.queue}')
-
+               
 
 # print(find_word_path('ants', 'diet'))
 # print(find_word_path('plane', 'stove'))
