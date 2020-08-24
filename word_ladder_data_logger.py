@@ -6,7 +6,7 @@ import sys
 result_list = []
 cleaned_list = []
 
-for i in range(100):
+for i in range(50):
     result_list.append(subprocess.run([sys.executable, "word_ladder_a.py"], capture_output=True, text=True ))
     # result = (subprocess.run([sys.executable, "word_ladder_a.py"], capture_output=True, text=True ))
     # result = subprocess.run([sys.executable, "word_ladder_a.py"])
@@ -39,9 +39,11 @@ with open('result_1.txt', 'w') as f:
 
 
 
-
-
 # import numpy as np
+# import matplotlib.pyplot as plt
+# import numpy as np
+
+
 # x = cleaned_list
 
 # # Compute frequency and bins
@@ -51,8 +53,6 @@ with open('result_1.txt', 'w') as f:
 # for b, f in zip(bins[1:], frequency):
 #     print(round(b, 1), ' '.join(np.repeat('*', f)))
 
-# import numpy as np
-# import matplotlib.pyplot as plt
 
 # plt.rcParams.update({'figure.figsize':(7,5), 'figure.dpi':100})
 

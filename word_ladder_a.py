@@ -87,7 +87,7 @@ def find_word_path(begin_word, end_word):
     visited.clear()
     # add start word to Queue (like a path)
     queue.enqueue([begin_word])
-    # while queue not empty
+    # while queue not empty(['bit', 'kit', 'kip'], 110)
     while queue.size() > 0:
    
         # pop current word off queue
