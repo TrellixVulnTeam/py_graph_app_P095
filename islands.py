@@ -145,7 +145,9 @@ def bft(start_row, start_col, matrix, visited):
     # enqueue starting vertex
     q.enqueue((start_row, start_col))    # use a tuple cause they are immutable & can be used as dict key
     island_connected = []
-
+    island_c = {}
+    path_d = {}
+    
 
     while q.size() > 0:
         # dequeue first vertex
@@ -162,11 +164,14 @@ def bft(start_row, start_col, matrix, visited):
                 # print(f'n >>  {neighbor}')    
                 if neighbor not in island_connected:
                     island_connected.append(neighbor)    
-
+                    path_d[(start_row, start_col)] = neighbor
             if (row, col) not in island_connected:
                 island_connected.append((row, col))
 
-    print(f' island_connected  {island_connected} ')                
+        
+                  
+    print(f' [{start_row}][{start_col}] paths:   {path_d}')
+    # print(f' island_connections  {island_connected} ')                
     return visited
 
 
