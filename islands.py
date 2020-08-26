@@ -95,8 +95,8 @@ def island_counter(matrix):
     #   if 1 located that is NOT visited
     #       append location to visited
     #       increment visited count
-    for col in range(len(matrix[0])):
-        for row in range(len(matrix)):
+    for col in range(len(matrix[0])): # width of matrix
+        for row in range(len(matrix)):   # height of matrix
             # if node not visited
             if not visited[row][col]:
                 # if 1 located at [row][col]
