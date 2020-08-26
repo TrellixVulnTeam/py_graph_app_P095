@@ -146,7 +146,7 @@ class SocialGraph:
 if __name__ == '__main__':
     sg = SocialGraph()
     # sg.populate_graph(10, 2)
-    sg.populate_graph(5, 4)
+    sg.populate_graph(10, 4)
     print(f' \t {sg.friendships} ')  # Will be DIFFERENT for each run
         #  num_friendships 5 
         #          bidrectional friendship (4, 5)
