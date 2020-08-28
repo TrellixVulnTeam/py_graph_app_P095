@@ -5,12 +5,16 @@ from world import World
 import random
 from ast import literal_eval
 
+######
+from util import Queue, Stack
+
+
 # Load world
 world = World()
 
 
 # You may uncomment the smaller graphs for development and testing purposes.
-map_file = "projects/adventure/maps/test_line.txt"
+map_file = "adventure/maps/test_line.txt"
 # map_file = "projects/adventure/maps/test_cross.txt"
 # map_file = "projects/adventure/maps/test_loop.txt"
 # map_file = "projects/adventure/maps/test_loop_fork.txt"
@@ -31,13 +35,28 @@ player = Player(world.starting_room)
 # traversal_path = ['n', 'n']
 traversal_path = []
 
-visited = set()
+#visited = set()
 
 
 # TRAVERSAL TEST
 visited_rooms = set()
 player.current_room = world.starting_room
 visited_rooms.add(player.current_room)
+
+s = Stack()
+s.push(player.current_room)
+
+while len(visited_rooms) < len(world.rooms):
+    current_r  = s.pop()
+
+    print(f' current_r  {current_r} ')
+    print(f' current_r.id  {current_r.id}')
+
+    if current_r.id not in visited_rooms:
+
+
+        break
+
 
 for move in traversal_path:
     player.travel(move)
@@ -55,26 +74,16 @@ else:
 #######
 # UNCOMMENT TO WALK AROUND
 #######
-player.current_room.print_room_description(player)
-while True:
-    cmds = input("-> ").lower().split(" ")
+# player.current_room.print_room_description(player)
+# while True:
+#     cmds = input("-> ").lower().split(" ")
 
-    visited.add(player.current_room.id)  # starting room
-    if cmds[0] in ["n", "s", "e", "w"]:
-        player.travel(cmds[0], True)
-        room_id = player.current_room.id
-        print(f' room_id  {room_id} ')
-        visited.add(room_id)
-        print(f' room id: {player.current_room.id}')
-        print(f' visited  {visited}  ')
+#     visited.add(player.current_room.id)  # starting room
+#     if cmds[0] in ["n", "s", "e", "w"]:
+#         player.travel(cmds[0], True)
+       
 
-        print(f'player.travel(direction)')        
-
-
-
-
-
-    elif cmds[0] == "q":
-        break
-    else:
-        print("I did not understand that command.")
+#     elif cmds[0] == "q":
+#         break
+#     else:
+#         print("I did not understand that command.")
