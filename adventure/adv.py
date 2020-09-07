@@ -14,11 +14,11 @@ world = World()
 
 
 # You may uncomment the smaller graphs for development and testing purposes.
-map_file = "adventure/maps/test_line.txt"
-# map_file = "projects/adventure/maps/test_cross.txt"
-# map_file = "projects/adventure/maps/test_loop.txt"
-# map_file = "projects/adventure/maps/test_loop_fork.txt"
-# map_file = "projects/adventure/maps/main_maze.txt"
+# map_file = "adventure/maps/test_line.txt"
+map_file = "adventure/maps/test_cross.txt"
+# map_file = "adventure/maps/test_loop.txt"
+# map_file = "adventure/maps/test_loop_fork.txt"
+# map_file = "adventure/maps/main_maze.txt"
 
 # map_file = "projects/adventure/maps/main_maze.txt"
 
